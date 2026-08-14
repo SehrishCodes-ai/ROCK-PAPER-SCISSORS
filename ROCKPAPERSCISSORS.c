@@ -5,7 +5,6 @@
 
 int getcompch();
 int getuserch();
-int checkwinner();
 int userc;
 char winner;
 
@@ -19,7 +18,7 @@ int main() {
     //printf("%d", user);
     while(user != 1 && user != 2 && user != 3){
         printf("INVALID CHOICE!\nTRY AGAIN!");
-        int user = getuserch();
+        user = getuserch();  // FIX: Removed 'int' declaration - was creating a new local variable
     }
     
     if(user == 1){
@@ -40,33 +39,33 @@ int main() {
         printf("COMPUTER CHOSE SCISSORS!\n");
     }
     
-    //char check[] = checkwinner()
-    if(userc == 1 && comp == 3){
-        char winner[]= "YOU";
+    // FIX: Changed 'userc' to 'user' - userc is a global but user is the validated value from loop
+    if(user == 1 && comp == 3){
+        winner = 'Y';  // FIX: Changed from char array to char, winner already declared globally
         printf("SO YOU ARE THE WINNER!");
-    }else if(userc == 1 && comp == 2){
-        char winner[]= "COMPUTER";
+    }else if(user == 1 && comp == 2){
+        winner = 'C';
         printf("SO COMPUTER IS THE WINNER!");
-    }else if(userc == 1 && comp == 1){
-        char winner[]= "DRAW";
+    }else if(user == 1 && comp == 1){
+        winner = 'D';
         printf("SO IT'S A DRAW!");
-    }else if(userc == 2 && comp == 1){
-        char winner[]= "YOU";
+    }else if(user == 2 && comp == 1){
+        winner = 'Y';
         printf("SO YOU ARE THE WINNER!");
-    }else if(userc == 2 && comp == 3){
-        char winner[]= "COMPUTER";
+    }else if(user == 2 && comp == 3){
+        winner = 'C';
         printf("SO COMPUTER IS THE WINNER!");
-    }else if(userc == 2 && comp == 2){
-        char winner[]= "DRAW";
+    }else if(user == 2 && comp == 2){
+        winner = 'D';
         printf("SO IT'S A DRAW!");
-    }else if(userc == 3 && comp == 2){
-        char winner[]= "YOU";
+    }else if(user == 3 && comp == 2){
+        winner = 'Y';
         printf("SO YOU ARE THE WINNER!");
-    }else if(userc == 3 && comp == 1){
-        char winner[]= "COMPUTER";
+    }else if(user == 3 && comp == 1){
+        winner = 'C';
         printf("SO COMPUTER IS THE WINNER!");
-    }else if(userc == 3 && comp == 3){
-        char winner[]= "DRAW";
+    }else if(user == 3 && comp == 3){
+        winner = 'D';
         printf("SO IT'S A DRAW!");
     }
     return 0;
